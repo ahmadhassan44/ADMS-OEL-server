@@ -13,4 +13,7 @@ export class RestaurantService {
     const restaurant = new this.restaurantModel(createRestaurantDto);
     return restaurant.save();
   }
+  async getRestaurants() {
+    return this.restaurantModel.find();
+  }
 }
