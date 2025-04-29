@@ -3,6 +3,7 @@ import { RestaurantModule } from './restaurant/restaurant.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { MenuModule } from './menu/menu.module';
+import { CustomizationsModule } from './customizations/customizations.module';
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { MenuModule } from './menu/menu.module';
     MongooseModule.forRoot(process.env.MONGO_CONNECTION_URL),
     RestaurantModule,
     MenuModule,
+    CustomizationsModule,
   ],
   controllers: [],
   providers: [],

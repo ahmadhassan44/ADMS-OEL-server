@@ -1,10 +1,13 @@
+import { Type } from 'class-transformer';
 import {
   IsArray,
   IsNotEmpty,
   IsNumber,
   IsOptional,
   IsString,
+  ValidateNested,
 } from 'class-validator';
+import { CustomizationDto } from 'src/customizations/dto/customization.dto';
 
 export class MenuItemDto {
   @IsNotEmpty()
@@ -30,6 +33,7 @@ export class MenuItemDto {
 
   @IsOptional()
   @IsArray()
-  @IsString({ each: true })
-  customizations: string[];
+  @ValidateNested({ each: true })
+  @Type(() => CustomizationDto)
+  customizations: CustomizationDto[];
 }

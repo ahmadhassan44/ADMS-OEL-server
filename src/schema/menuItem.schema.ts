@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
+import { Customization } from './customizations.schema';
 
 export type MenuItemDocument = HydratedDocument<MenuItem>;
 
@@ -21,7 +22,7 @@ export class MenuItem {
   images: string[];
 
   @Prop()
-  customizations: string[]; // Array of customization IDs
+  customizations: Customization[];
 }
 
 export const MenuItemSchema = SchemaFactory.createForClass(MenuItem);
