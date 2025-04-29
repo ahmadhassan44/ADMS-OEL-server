@@ -19,6 +19,9 @@ export class MenuItem {
 
   @Prop()
   images: string[];
+
+  @Prop()
+  customizations: string[]; // Array of customization IDs
 }
 
 export const MenuItemSchema = SchemaFactory.createForClass(MenuItem);
