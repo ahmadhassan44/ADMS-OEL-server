@@ -16,4 +16,7 @@ export class RestaurantService {
   async getRestaurants() {
     return this.restaurantModel.find();
   }
+  async getRestaurantById(id: string) {
+    return this.restaurantModel.findById(id);
+  }
 }

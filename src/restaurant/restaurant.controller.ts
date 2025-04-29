@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { RestaurantService } from './restaurant.service';
 import { CreateRestaurantDto } from './dto/createRestaurant.dto';
 
@@ -14,5 +14,10 @@ export class RestaurantController {
   @Get('get')
   async getRestaurants() {
     return this.restaurantService.getRestaurants();
+  }
+
+  @Get('get/:id')
+  async getRestaurantById(@Param('id') id: string) {
+    return this.restaurantService.getRestaurantById(id);
   }
 }
