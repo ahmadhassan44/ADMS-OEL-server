@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 import { Type } from 'class-transformer';
+import { MenuItem } from './menuItem.schema';
 
 // Create separate class for nested coordinates
 @Schema()
@@ -51,6 +52,9 @@ export class Restaurant {
   @Prop({ type: Address, required: true })
   @Type(() => Address)
   address: Address;
+  @Prop({ type: [MenuItem], default: [] })
+  @Type(() => MenuItem)
+  menu: MenuItem[];
 }
 
 export const RestaurantSchema = SchemaFactory.createForClass(Restaurant);

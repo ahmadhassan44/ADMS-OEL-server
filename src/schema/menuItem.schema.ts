@@ -4,14 +4,20 @@ import { HydratedDocument } from 'mongoose';
 export type MenuItemDocument = HydratedDocument<MenuItem>;
 
 @Schema()
-class MenuItem {
+export class MenuItem {
   @Prop({ required: true })
   name: string;
+
+  @Prop()
   description: string;
+
   @Prop({ required: true })
   price: number;
+
   @Prop({ required: true })
   preparationTime: number;
+
+  @Prop()
   images: string[];
 }
 

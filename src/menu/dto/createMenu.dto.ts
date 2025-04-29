@@ -1,22 +1,11 @@
-import {
-  IsNotEmpty,
-  IsNotEmptyObject,
-  IsNumber,
-  IsString,
-} from 'class-validator';
+import { IsArray, IsNotEmpty, ValidateNested } from 'class-validator';
+import { Type } from 'class-transformer';
+import { MenuItemDto } from './menuItem.dto';
+
 export class CreateMenuDto {
   @IsNotEmpty()
-  @IsString()
-  name: string;
-
-  @IsString()
-  description?: string;
-
-  @IsNotEmpty()
-  @IsNumber()
-  price: number;
-
-  @IsNotEmpty()
-  @IsNumber()
-  preparationTime: number;
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => MenuItemDto)
+  menuItems: MenuItemDto[];
 }
