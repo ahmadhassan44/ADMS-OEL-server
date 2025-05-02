@@ -45,4 +45,14 @@ export class CustomizationService {
       menuItem: restaurant.menu[menuItemIndex],
     };
   }
+  async getAllCustomizationsForARestaurant(restaurantId: string) {
+    return this.restaurantModel.findById(restaurantId).then((restaurant) => {
+      if (!restaurant) {
+        throw new NotFoundException(
+          `Restaurant with ID ${restaurantId} not found`,
+        );
+      }
+      return restaurant.menu.map((item) => item.customizations).flat();
+    });
+  }
 }

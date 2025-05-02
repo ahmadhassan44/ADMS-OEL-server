@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CustomizationDto } from './dto/customization.dto';
 import { CustomizationService } from './customizations.service';
 
@@ -15,6 +15,14 @@ export class CustomizationsController {
       restaurantId,
       menuItemId,
       customizationData,
+    );
+  }
+  @Get('customizations/:restaurantId')
+  async getAllCustomizationsForARestaurant(
+    @Param('restaurantId') restaurantId: string,
+  ) {
+    return this.customizationService.getAllCustomizationsForARestaurant(
+      restaurantId,
     );
   }
 }
