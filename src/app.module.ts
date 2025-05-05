@@ -4,6 +4,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { MenuModule } from './menu/menu.module';
 import { CustomizationsModule } from './customizations/customizations.module';
+import { Review } from './schema/review.schema';
+import { ReviewModule } from './reviews/review.module';
 
 @Module({
   imports: [
@@ -12,6 +14,7 @@ import { CustomizationsModule } from './customizations/customizations.module';
     RestaurantModule,
     MenuModule,
     CustomizationsModule,
+    ReviewModule,
   ],
   controllers: [],
   providers: [],
